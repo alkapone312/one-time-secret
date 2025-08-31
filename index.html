@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet"/>
+    <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+    <title>One time secret</title>
+    <meta name="description" content="This page is a **one-time secret sharing tool**. It allows a user to enter sensitive information, which is then **encrypted in the browser**, sent securely to the server, and shared via a **single-use link**. The data can only be accessed once, after which it is deleted from the server. The page explains how the process works, provides a simple interface for entering and copying secrets, and links to the open-source code for verification.">
+    <meta name="keywords" content="one time secret, secure message, encrypted sharing, private link, confidential data, self-destruct message, secret sharing, one-time link, data encryption, secure communication">
+    <meta name="robots" content="index,follow">
+</head>
+<body>
+    <header>
+        <h1>One time secret</h1>
+        <div class="message"></div>
+        <button class="toggle-mode" aria-label="Toggle theme" onclick="toggleMode()">
+            <div class="toggle-icon"></div>
+            <div class="toggle-label"></div>
+        </button>
+    </header>
+    <main>
+        <span class="copy" style="display: none;">
+            <input type="text" class="result" readonly>
+            <svg class="copy-action" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.5 3H14.6C16.8402 3 17.9603 3 18.816 3.43597C19.5686 3.81947 20.1805 4.43139 20.564 5.18404C21 6.03969 21 7.15979 21 9.4V16.5M6.2 21H14.3C15.4201 21 15.9802 21 16.408 20.782C16.7843 20.5903 17.0903 20.2843 17.282 19.908C17.5 19.4802 17.5 18.9201 17.5 17.8V9.7C17.5 8.57989 17.5 8.01984 17.282 7.59202C17.0903 7.21569 16.7843 6.90973 16.408 6.71799C15.9802 6.5 15.4201 6.5 14.3 6.5H6.2C5.0799 6.5 4.51984 6.5 4.09202 6.71799C3.71569 6.90973 3.40973 7.21569 3.21799 7.59202C3 8.01984 3 8.57989 3 9.7V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.0799 21 6.2 21Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </span>
+
+        <span class="copy">
+            <textarea class="secret-text" placeholder="Enter the data to send..."></textarea>
+            <svg aria-label="Copy" class="copy-action" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.5 3H14.6C16.8402 3 17.9603 3 18.816 3.43597C19.5686 3.81947 20.1805 4.43139 20.564 5.18404C21 6.03969 21 7.15979 21 9.4V16.5M6.2 21H14.3C15.4201 21 15.9802 21 16.408 20.782C16.7843 20.5903 17.0903 20.2843 17.282 19.908C17.5 19.4802 17.5 18.9201 17.5 17.8V9.7C17.5 8.57989 17.5 8.01984 17.282 7.59202C17.0903 7.21569 16.7843 6.90973 16.408 6.71799C15.9802 6.5 15.4201 6.5 14.3 6.5H6.2C5.0799 6.5 4.51984 6.5 4.09202 6.71799C3.71569 6.90973 3.40973 7.21569 3.21799 7.59202C3 8.01984 3 8.57989 3 9.7V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.0799 21 6.2 21Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </span>
+        <button class="action" aria-label="Main action"></button>
+
+        <section>
+            <h2>Are your data safe?</h2>
+            <p>Below is an explanation of how the data are processed in this application:</p>
+            <div class="point">
+                <div class="circle">1.</div>
+                <p>Data are encrypted directly in the browser. No one outside the browser can access this process – everything happens on the client side.</p>
+            </div>
+            <div class="point">
+                <div class="circle">2.</div>
+                <p>The encrypted data are sent to the server and assigned a unique identifier. Without the proper key, the data cannot be read.</p>
+            </div>
+            <div class="point">
+                <div class="circle">3.</div>
+                <p>A one-time link is created containing the data identifier and the key needed to decrypt it.</p>
+            </div>
+            <div class="point">
+                <div class="circle">4.</div>
+                <p>Data are stored on the server for a maximum of twenty-four hours or until the link is used.</p>
+            </div>
+            <div class="point">
+                <div class="circle">5.</div>
+                <p>After clicking the link, data are retrieved from the server and then deleted. The key from the link is used to decrypt the message in the browser, as described in point #1.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>How can you verify this?</h2>
+            <p>This project is open-source. If there are any doubts, the code can be reviewed — it is very simple! The GitHub link can be found in the footer.</p>
+        </section>
+    </main>
+    <footer>
+        <span>&copy; <span class="domain-name"></span></span>
+        <span>Released under the MIT License.</span>
+        <span><a class="source-link" href="https://github.com/twoj-repo">Source code</a></span>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
