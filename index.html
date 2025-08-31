@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet"/>
-    <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
     <title>One time secret</title>
     <meta name="description" content="This page is a **one-time secret sharing tool**. It allows a user to enter sensitive information, which is then **encrypted in the browser**, sent securely to the server, and shared via a **single-use link**. The data can only be accessed once, after which it is deleted from the server. The page explains how the process works, provides a simple interface for entering and copying secrets, and links to the open-source code for verification.">
     <meta name="keywords" content="one time secret, secure message, encrypted sharing, private link, confidential data, self-destruct message, secret sharing, one-time link, data encryption, secure communication">
@@ -12,14 +11,17 @@
 </head>
 <body>
     <header>
-        <h1>One time secret</h1>
-        <div class="message"></div>
+        <a class="main-page"><img width="150" class="logo"/><h2 class="domain-name"></h2></a>
         <button class="toggle-mode" aria-label="Toggle theme" onclick="toggleMode()">
             <div class="toggle-icon"></div>
             <div class="toggle-label"></div>
         </button>
     </header>
     <main>
+        <div class="main-top-block">
+            <h1>One time secret</h1>
+            <div class="message"></div>
+        </div>
         <span class="copy" style="display: none;">
             <input type="text" class="result" readonly>
             <svg class="copy-action" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
